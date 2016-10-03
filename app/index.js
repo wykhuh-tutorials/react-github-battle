@@ -7,6 +7,7 @@ var USER_DATA = {
 var React = require('react');
 var ReactDom = require('react-dom');
 
+
 // save the result of React.createClass into HelloWorld
 var ProfilePic = React.createClass({
   // every component must have render
@@ -17,13 +18,31 @@ var ProfilePic = React.createClass({
   }
 })
 
+var Link = React.createClass({
+  changeUrl: function() {
+    window.location.replace(this.props.href)
+  },
+
+  render: function() {
+    // this.props.children lets us access the stuff between the parent compoent tag
+    // <Parent>stuff</Parent>
+    return (
+      <span style={{color: 'blue', cursor: 'pointer'}}
+        onClick={this.changeUrl}>
+        {this.props.children}
+      </span>
+    )
+  }
+})
+
+
 var ProfileLink = React.createClass({
   render: function() {
     return (
       <div>
-        <a href={'https://www.github.com/' + this.props.username}>
+        <Link href={'https://www.github.com/' + this.props.username}>
           {this.props.username}
-        </a>
+        </Link>
       </div>
     )
   }
@@ -44,6 +63,8 @@ var Avatar = React.createClass({
         <ProfilePic imageUrl={this.props.user.image} />
         <ProfileName name={this.props.user.name} />
         <ProfileLink username={this.props.user.username} />
+        <Link />
+
       </div>
     )
   }
