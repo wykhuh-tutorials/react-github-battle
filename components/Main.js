@@ -6,8 +6,7 @@ var Main = React.createClass({
     // (e.g. <Route></Route>) is between
     // its <tag></tag>
     return(
-      <div>
-        Hello from Main
+      <div className='main-container'>
         {this.props.children}
       </div>
     )
