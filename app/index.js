@@ -6,7 +6,7 @@ var HelloWorld = React.createClass ({
   // every component must have render
   render: function() {
     return (
-      <div>Hello World!</div>
+      <div>Hello {this.props.name}!</div>
     )
   }
 });
@@ -14,4 +14,4 @@ var HelloWorld = React.createClass ({
 // you usually only have to use ReactDOM.render once in your application
 // because by rendering the most parent component, all child components
 // will be rendered as well.
-ReactDom.render(<HelloWorld />, document.getElementById('app'));
+ReactDom.render(<HelloWorld name='Jane'/>, document.getElementById('app'));
