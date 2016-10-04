@@ -14,9 +14,17 @@ var ConfirmBattleContainer = React.createClass({
    }
   },
 
+  // after component renders, fetch data for the two usernames via Github api
+  componentDidMount: function() {
+    var query = this.props.location.query;
+
+  },
+
   render: function() {
     return (
-      <ConfirmBattle />
+      <ConfirmBattle
+        isLoading={this.state.isLoading}
+        playerInfo={this.state.playerInfo} />
     );
   }
 
