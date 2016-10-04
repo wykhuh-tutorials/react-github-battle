@@ -2,6 +2,12 @@ var React = require('react');
 var transparentBg = require('../styles').transparentBg;
 
 var PromptContainer = React.createClass({
+  // context allow you to pass items without going to props;
+  // contextTypes doesn't scale well so only use it sparignly;
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   // use getInitialState to give a component state;
   // getInitialState returns on object that has all the state properties
   getInitialState: function() {
@@ -29,6 +35,25 @@ var PromptContainer = React.createClass({
       username: ''
     })
 
+    // if the url has a playerOne route params go to /battle
+    // i.e. we are on /playerTwo/:playerOne
+    if(this.props.routeParams.playerOne) {
+      // can pass either an object or a path to router.push
+      this.context.router.push({
+        // /battle?playerOne=xxx&playerTwo=xxx
+        pathname: '/battle',
+        // pass data to /battle route
+        query: {
+          playerOne: this.props.routeParams.playerOne,
+          playerTwo: this.state.username
+        }
+      })
+    // else go to /playerTwo
+    // i.e. we are on /playerOne
+    } else {
+      // /playerTwo/xxx
+      this.context.router.push('/playerTwo/' + this.state.username)
+    }
   },
 
   render: function() {
