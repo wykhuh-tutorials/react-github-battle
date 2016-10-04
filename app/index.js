@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDom = require('react-dom');
-var routes = require('../config/routes');
+var routes = require('./config/routes');
 
 
 
