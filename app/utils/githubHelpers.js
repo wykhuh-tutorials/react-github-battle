@@ -12,11 +12,11 @@ function getUserInfo(username) {
 var helpers = {
   getPlayersInfo: function(players) {
     // axios.all takens an array of promises;
-    // when all promises are resovled, then do then()
+    // when all promises are resovled, then resolve axios.all
     return axios.all(players.map(function (username) {
       return getUserInfo(username);
     })).then(function(info) {
-      // only want the data property from the user github sends
+      // only want the data property from the info github sends
       return info.map(function(user) {
         return user.data;
       })
