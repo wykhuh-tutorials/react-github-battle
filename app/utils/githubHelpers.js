@@ -21,7 +21,7 @@ var helpers = {
         return user.data;
       })
     }).catch(function(err) {
-      console.warn('Erron in getPlayersInfo.', err)
+      console.warn('Error in getPlayersInfo.', err)
     })
   }
 }
