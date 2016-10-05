@@ -1,5 +1,6 @@
 var React = require('react');
 var ConfirmBattle = require('../components/ConfirmBattle');
+var githubHelpers = require('../utils/githubHelpers');
 
 var ConfirmBattleContainer = React.createClass({
   // use contextTypes to get access to the router
@@ -17,7 +18,10 @@ var ConfirmBattleContainer = React.createClass({
   // after component renders, fetch data for the two usernames via Github api
   componentDidMount: function() {
     var query = this.props.location.query;
-
+    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then(function(players){
+        console.log(players)
+      })
   },
 
   render: function() {
