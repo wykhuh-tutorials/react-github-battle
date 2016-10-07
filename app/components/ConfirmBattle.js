@@ -5,6 +5,7 @@ var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var MainWrapper = require('./MainWrapper');
+var Loading = require('./Loading');
 
 function output (object) {
   return <pre>{JSON.stringify(object, null, ' ')}</pre>
@@ -12,7 +13,7 @@ function output (object) {
 
 function ConfirmBattle (props) {
     return props.isLoading === true
-      ? <p>Loading...</p>
+      ? <Loading />
       : <MainWrapper>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>
