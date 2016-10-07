@@ -5,6 +5,7 @@ var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var Link = require('react-router').Link;
 var MainWrapper = require('./MainWrapper');
+var Loading = require('./Loading');
 
 
 // create separate private stateless function to avoid duplicate code
@@ -23,7 +24,7 @@ function StartOver () {
 function Results (props) {
   if(props.isLoading === true) {
     return(
-      <p>Loading...</p>
+      <Loading text="One Moment" speed={100}/>
     )
   }
 

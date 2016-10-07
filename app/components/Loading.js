@@ -19,8 +19,6 @@ var styles = {
 }
 
 var Loading = React.createClass({
-
-
   propTypes: {
     text: PropTypes.string,
     speed: PropTypes.number
@@ -39,7 +37,6 @@ var Loading = React.createClass({
       text: this.originalText
     }
   },
-
 
   componentDidMount: function(){
     var stopper = this.originalText + "...";
