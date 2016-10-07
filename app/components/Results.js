@@ -3,7 +3,7 @@ var PropTypes = React.PropTypes;
 var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
-
+var Link = require('react-router').Link;
 
 function Results (props) {
   var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1;
@@ -21,7 +21,13 @@ function Results (props) {
 
         </UserDetailsWrapper>
       </div>
-
+      <div className="col-sm-12" style={styles.space}>
+        <Link to='/playerOne'>
+          <button type='button' className='btn btn-lg btn-danger'>
+            Start over
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
