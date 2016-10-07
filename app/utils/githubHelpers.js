@@ -23,6 +23,10 @@ var helpers = {
     }).catch(function(err) {
       console.warn('Error in getPlayersInfo.', err)
     })
+  },
+
+  battle: function(players) {
+
   }
 }
 
