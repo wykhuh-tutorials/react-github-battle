@@ -5,22 +5,31 @@ var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var Link = require('react-router').Link;
 
+// create separate private stateless function to avoid duplicate code
+function StartOver () {
+  return(
+    <div className="col-sm-12" style={styles.space}>
+      <Link to='/playerOne'>
+        <button type='button' className='btn btn-lg btn-danger'>
+          Start over
+        </button>
+      </Link>
+    </div>
+  )
+}
+
 function Results (props) {
+  // if it is a tie, render this view
   if(props.scores[0] === props.scores[1] ) {
     return (
       <div className="jumbotron col-sm-12 text-center" style={styles.transparent}>
         <h1>It's a tie</h1>
-        <div className="col-sm-12" style={styles.space}>
-          <Link to='/playerOne'>
-            <button type='button' className='btn btn-lg btn-danger'>
-              Start over
-            </button>
-          </Link>
-        </div>
+        <StartOver />
       </div>
     )
   }
-  
+
+  // if it is not a tie, render this view
   var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1;
   var losingIndex = winningIndex === 0 ? 1 : 0;
 
@@ -36,13 +45,7 @@ function Results (props) {
 
         </UserDetailsWrapper>
       </div>
-      <div className="col-sm-12" style={styles.space}>
-        <Link to='/playerOne'>
-          <button type='button' className='btn btn-lg btn-danger'>
-            Start over
-          </button>
-        </Link>
-      </div>
+      <StartOver />
     </div>
   );
 }
