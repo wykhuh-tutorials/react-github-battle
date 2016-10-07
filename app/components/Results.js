@@ -19,6 +19,12 @@ function StartOver () {
 }
 
 function Results (props) {
+  if(props.isLoading === true) {
+    return(
+      <p>Loading...</p>
+    )
+  }
+  
   // if it is a tie, render this view
   if(props.scores[0] === props.scores[1] ) {
     return (
