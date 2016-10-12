@@ -1,16 +1,16 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
-var MainWrapper = require('./MainWrapper');
+var styles = require('../styles');
 
 function Home () {
   return (
-    <MainWrapper>
+    <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
       <h1>Github Battle</h1>
       <Link to='/playerOne'>
         <button type='button' className='btn btn-lg btn-success'>Get Started</button>
       </Link>
-    </MainWrapper>
+    </div>
   )
 }
 module.exports = Home;
