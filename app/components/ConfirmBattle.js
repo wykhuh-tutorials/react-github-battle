@@ -13,7 +13,7 @@ function output (object) {
 
 function ConfirmBattle (props) {
     return props.isLoading === true
-      ? <Loading speed={800} text='Waiting' />
+      ? <Loading />
       : <MainWrapper>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>

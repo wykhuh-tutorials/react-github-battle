@@ -24,7 +24,7 @@ function StartOver () {
 function Results (props) {
   if(props.isLoading === true) {
     return(
-      <Loading text="One Moment" speed={100}/>
+      <Loading />
     )
   }
 
