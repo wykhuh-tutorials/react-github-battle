@@ -2,7 +2,6 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var styles = require('../styles');
 var UserDetails = require('./UserDetails');
-var UserDetailsWrapper = require('./UserDetailsWrapper');
 var Link = require('react-router').Link;
 var Loading = require('./Loading');
 var styles = require('../styles');
@@ -45,13 +44,14 @@ function Results (props) {
     <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
       <h1>Results</h1>
       <div className="col-sm-8 col-sm-offset-2">
-        <UserDetailsWrapper header="Winner">
+        <div className="col-sm-6">
+          <p className="lead">Winner</p>
           <UserDetails score={props.scores[winningIndex]} info={props.playersInfo[winningIndex]}/>
-        </UserDetailsWrapper>
-        <UserDetailsWrapper header="Loser">
+        </div>
+        <div className="col-sm-6">
+          <p className="lead">Loser</p>
           <UserDetails score={props.scores[losingIndex]} info={props.playersInfo[losingIndex]}/>
-
-        </UserDetailsWrapper>
+        </div>
       </div>
       <StartOver />
     </div>
