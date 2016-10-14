@@ -15,19 +15,14 @@ var ResultsContainer = React.createClass({
   // this.props.location.state.playersInfo
   componentDidMount: function() {
     var query = this.props.location.query;
-    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
-      .then(function(players){
-        githubHelpers.battle(players)
-          .then(function(scores){
-            this.setState({
-              scores: scores,
-              isLoading: false,
-              playersInfo: [players[0], players[1]]
-            })
-          }.bind(this))
+    githubHelpers.battle([query.playerOne, query.playerTwo])
+      .then(function(res){
+        this.setState({
+          scores: res.scores,
+          isLoading: false,
+          playersInfo: res.players
+        })
       }.bind(this))
-      .then(func)
-
   },
 
   render: function() {

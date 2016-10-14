@@ -43,6 +43,14 @@ function calculateScores(players) {
 }
 
 var helpers = {
+  battle: function(players) {
+    return this.getPlayersInfo(players).then(function(playersInfo){
+      return this.getScores(playersInfo).then(function(scores){
+        return {players: playersInfo, scores: scores}
+      });
+    }.bind(this))
+  },
+
   getPlayersInfo: function(players) {
     // axios.all takens an array of promises;
     // when all promises are resovled, then resolve axios.all
@@ -58,7 +66,7 @@ var helpers = {
     })
   },
 
-  battle: function(players) {
+  getScores: function(players) {
     var playerOneData = getPlayersData(players[0]);
     var playerTwoData = getPlayersData(players[1]);
 
