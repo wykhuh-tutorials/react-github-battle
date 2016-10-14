@@ -3,7 +3,6 @@ var PropTypes = React.PropTypes;
 var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var Link = require('react-router').Link;
-var Loading = require('./Loading');
 var styles = require('../styles');
 
 // create separate private stateless function to avoid duplicate code
@@ -22,7 +21,9 @@ function StartOver () {
 function Results (props) {
   if(props.isLoading === true) {
     return(
-      <Loading />
+      <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+        Loading...
+      </div>
     )
   }
 
