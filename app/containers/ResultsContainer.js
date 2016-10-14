@@ -6,6 +6,7 @@ var ResultsContainer = React.createClass({
   getInitialState: function(){
     return {
       isLoading: true,
+      playersInfo: [],
       scores: []
     }
   },
@@ -13,20 +14,27 @@ var ResultsContainer = React.createClass({
   // playerInfo is being passed from ConfirmBattleContainer's router via
   // this.props.location.state.playersInfo
   componentDidMount: function() {
-    githubHelpers.battle(this.props.location.state.playersInfo)
-      .then(function(scores){
-        this.setState({
-          scores: scores,
-          isLoading: false
-        })
+    var query = this.props.location.query;
+    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then(function(players){
+        githubHelpers.battle(players)
+          .then(function(scores){
+            this.setState({
+              scores: scores,
+              isLoading: false,
+              playersInfo: [players[0], players[1]]
+            })
+          }.bind(this))
       }.bind(this))
+      .then(func)
+
   },
 
   render: function() {
     return (
       <Results
         isLoading={this.state.isLoading}
-        playersInfo={this.props.location.state.playersInfo}
+        playersInfo={this.state.playersInfo}
         scores={this.state.scores}/>
     );
   }

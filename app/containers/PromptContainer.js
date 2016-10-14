@@ -35,14 +35,14 @@ var PromptContainer = React.createClass({
       username: ''
     })
 
-    // if the url has a playerOne route params go to /battle
+    // if the url has a playerOne route params go to /results
     // i.e. we are on /playerTwo/:playerOne
     if(this.props.routeParams.playerOne) {
       // can pass either an object or a path to router.push
       this.context.router.push({
-        // /battle?playerOne=xxx&playerTwo=xxx
-        pathname: '/battle',
-        // pass data to /battle route
+        // /results?playerOne=xxx&playerTwo=xxx
+        pathname: '/results',
+        // pass data to /results route
         query: {
           playerOne: this.props.routeParams.playerOne,
           playerTwo: this.state.username

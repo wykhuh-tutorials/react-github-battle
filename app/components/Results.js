@@ -58,10 +58,10 @@ function Results (props) {
   );
 }
 
-Results.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  playersInfo: PropTypes.array.isRequired,
-  scores: PropTypes.array.isRequired
-}
+// Results.propTypes = {
+//   isLoading: PropTypes.bool.isRequired,
+//   playersInfo: PropTypes.array.isRequired,
+//   scores: PropTypes.array.isRequired
+// }
 
 module.exports = Results;
